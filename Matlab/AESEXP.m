@@ -18,7 +18,7 @@ shiftComb = gf(zeros(1,4),8,283);
 shiftController = 3;
 rcon = gf(1,8,283);
 
-for i=1:999
+for i=1:160
     
     if(i<=16)
         messageIn = message(i);
