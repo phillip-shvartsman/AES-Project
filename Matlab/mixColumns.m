@@ -1,8 +1,5 @@
 function [ out ] = mixColumns( in )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
-%disp("mixing columns");
-%disp(dec2hex(in.x));
+%Implements AES mixColumns
 mixArray = gf([2,3,1,1],8,283);
 out = gf(zeros(1,4),8,283);
 

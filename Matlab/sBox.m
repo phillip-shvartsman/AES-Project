@@ -1,15 +1,13 @@
 function [ out ] = sBox( in )
-%sBox 
-inv = gfInv(in,8);
+%AES S-Box
+inv = gfInv(in,8); %Invert input
 pp = 283;
-d = [uint32(de2bi(248,8));de2bi(248/2,8);de2bi(248/4,8);de2bi(248/8,8);
-    de2bi(143,8);de2bi(199,8);de2bi(227,8);de2bi(241,8)];
-d = flipud(d);
-s = de2bi(inv.x,8);
-add = uint32(de2bi(99,8));
-result = de2bi(0,8);
+
+s = de2bi(inv.x,8); %Take s as the inverted value in binary
+add = uint32(de2bi(99,8)); %Add value in binary
+result = de2bi(0,8); %Temp results
 for i=1:5
-    result = xor(result,s);
+    result = xor(result,s); %XOR 5 Times
     buffer = s(8);
     s(2:8) = s(1:7);
     s(1) = buffer;
